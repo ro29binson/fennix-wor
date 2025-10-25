@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fennix Wor</title>
+  <style>
+    :root{--accent:#e50914;--bg:#071022;--card:#0f1724;--muted:#9aa6b2;--radius:12px;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:#eaf2ff;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:linear-gradient(90deg, rgba(0,0,0,0.2), transparent);}
+    .brand{font-weight:800;font-size:20px;letter-spacing:1px}
+    .controls{display:flex;gap:12px;align-items:center}
+    .btn{background:var(--accent);border:0;padding:8px 12px;border-radius:8px;color:white;cursor:pointer}
+    main{padding:28px;max-width:1200px;margin:0 auto}
+    .row{display:flex;gap:18px;overflow:hidden}
+    .card{min-width:420px;border-radius:10px;overflow:hidden;position:relative;cursor:pointer;transition:transform .35s ease, box-shadow .35s ease}
+    .card img{width:100%;height:240px;object-fit:cover;display:block}
+    .card:hover{transform:scale(1.06);box-shadow:0 30px 50px rgba(0,0,0,0.6), 0 0 40px rgba(233,9,20,0.12);filter:brightness(1.02)}
+    .info{padding:14px;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.45));}
+    .title{font-size:18px;font-weight:700;margin-bottom:6px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .desc{font-size:14px;color:#dbe9ff;opacity:0.95}
+
+    /* Animaciones de entrada */
+    .card{opacity:0;transform:translateY(20px);animation:fadeInUp .7s forwards; }
+    .card:nth-child(1){animation-delay:0.08s}
+    .card:nth-child(2){animation-delay:0.16s}
+    .card:nth-child(3){animation-delay:0.24s}
+    .card:nth-child(4){animation-delay:0.32s}
+    .card:nth-child(5){animation-delay:0.40s}
+    .card:nth-child(6){animation-delay:0.48s}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Dark/Light toggle */
+    .theme-toggle{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:#e6eef6;cursor:pointer}
+    body.light{background:#f6f8fb;color:#0c1720}
+    body.light .card{background:#fff}
+    body.light .desc{color:#0b1b2b}
+    @media(max-width:900px){.row{flex-direction:column}.card{min-width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Fennix Wor</div>
+    <div class="controls">
+      <button class="theme-toggle" id="themeBtn">🌙</button>
+      <button class="btn" onclick="window.scrollTo(0, document.body.scrollHeight)">Explorar</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="row">
+
+      <article class="card">
+        <img src="img/banner1.jpg" alt="The Edge of Tomorrow">
+        <div class="info">
+          <div class="title">The Edge of Tomorrow</div>
+          <div class="meta">Ciencia Ficción / Acción · 2014</div>
+          <div class="desc">Un soldado atrapado en un bucle temporal aprende a luchar contra una invasión alienígena.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/banner2.jpg" alt="La La Land">
+        <div class="info">
+          <div class="title">La La Land</div>
+          <div class="meta">Drama / Musical · 2016</div>
+          <div class="desc">Una historia de amor entre una aspirante a actriz y un músico de jazz en Los Ángeles.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/banner3.jpg" alt="Spirited Away">
+        <div class="info">
+          <div class="title">Spirited Away</div>
+          <div class="meta">Animación / Fantasía · 2001</div>
+          <div class="desc">Una niña descubre un mundo de espíritus y debe rescatar a sus padres.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/banner4.jpg" alt="Get Out">
+        <div class="info">
+          <div class="title">Get Out</div>
+          <div class="meta">Terror / Thriller · 2017</div>
+          <div class="desc">Un joven visita a la familia de su novia y descubre un oscuro secreto.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/banner5.jpg" alt="The Grand Budapest Hotel">
+        <div class="info">
+          <div class="title">The Grand Budapest Hotel</div>
+          <div class="meta">Comedia / Drama · 2014</div>
+          <div class="desc">Las aventuras de un conserje y su joven protegido en un famoso hotel europeo.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/banner6.jpg" alt="Mad Max: Fury Road">
+        <div class="info">
+          <div class="title">Mad Max: Fury Road</div>
+          <div class="meta">Acción · 2015</div>
+          <div class="desc">En un desierto postapocalíptico, dos rebeldes huyen para escapar de un tirano.</div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script>
+    // Toggle theme
+    const btn = document.getElementById('themeBtn');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      btn.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
